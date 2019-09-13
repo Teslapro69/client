@@ -80,6 +80,7 @@ func ResolveAndSaveContacts(mctx libkb.MetaContext, provider ContactsProvider, c
 	s := mctx.G().SyncedContactList
 	currentContacts, err := s.RetrieveContacts(mctx)
 
+	// TODO: this should only affect what we return, not what the server sees.
 	newlyResolvedMap := make(map[string]keybase1.ProcessedContact)
 	if err == nil {
 		unres := make(map[string]struct{})
